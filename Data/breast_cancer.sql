@@ -12,4 +12,4 @@ mitoses INT,
 class INT)
 ;
 
-SELECT * FROM cancerData
+SELECT * FROM cancerData;

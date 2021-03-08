@@ -1,5 +1,5 @@
 # Import Necessary Libraries
-from models import create_classes
+import models
 import pickle
 import numpy as np
 import sqlalchemy
@@ -40,7 +40,7 @@ model = pickle.load(open('model.pkl', 'rb'))
 def home():
     return render_template("index.html")
 
-@app.route('/predict',methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
 
     int_features = [int(x) for x in request.form.values()]
@@ -51,7 +51,7 @@ def predict():
 
     return render_template('index.html', prediction_text='Sales should be $ {}'.format(output))
 
-@app.route('/results',methods=['POST'])
+@app.route('/results', methods=['POST'])
 def results():
 
     data = request.get_json(force=True)
