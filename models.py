@@ -10,31 +10,27 @@ import json
 import joblib
 
 # Importing the dataset
-df = pd.read_csv('Data/breast_cancer.csv')
+df = pd.read_csv('breastData/breast_cancer.csv')
 
 # Drop the null columns where all values are null
 df = df.dropna(axis='columns', how='all')
 # Drop the null rows
 df = df.dropna()
 # Drop the column id
-df=df.iloc[:,1:]
+# df=df.iloc[:,1:]
+df.head()
 
-X = df.drop('class', axis=1)
-y = df['class']
+#Encode the diagnosis values
+from sklearn.preprocessing import LabelEncoder
+labelencoder = LabelEncoder()
+df.iloc[:,1]=labelencoder.fit_transform(df.iloc[:,1].values)
 
-df = X.copy()
-
-# get_dummies
-df_binary_encoded = pd.get_dummies(df, columns=["bare_nucleoli"])
-df_binary_encoded.head()
+X=df.iloc[:,2:].values
+y=df.iloc[:,1].values
 
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
-X = pd.get_dummies(X)
-
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
-
-X_train.head()
 
 # Scale your data
 from sklearn.preprocessing import MinMaxScaler
@@ -56,5 +52,5 @@ predictions = rf.predict(X_test)
 joblib.dump(rf, 'model.pkl') 
 
 # Loading model to compare the results
-model = pickle.load(open('model.pkl'))
-print(model.predict([[1.8]]))
+# model = pickle.load(open('model.pkl'))
+# print(model.predict([[1.8]]))

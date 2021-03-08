@@ -15,9 +15,9 @@ import os
 #################################################
 # Database Setup
 #################################################
-engine = create_engine(f'postgresql://postgres:{sql_pass}@localhost/breast_cancer')
+engine = create_engine(f'postgresql://postgres:{sql_pass}@localhost/breast_cancer1')
 conn=engine.connect()
-print(conn.execute("SELECT * from cancerData"))
+print(conn.execute("SELECT * from cancerdata"))
 
 # Reflect an existing database into a new model
 Base = automap_base()
@@ -30,7 +30,7 @@ Base.prepare(engine, reflect=True)
 # Flask Setup
 #################################################
 app = Flask(__name__)
-model = pickle.load(open('model.pkl', 'rb'))
+# model = pickle.load(open('model.pkl', 'rb'))
 #################################################
 # Flask Routes
 #################################################
