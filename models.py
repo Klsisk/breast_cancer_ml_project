@@ -47,9 +47,10 @@ rf = rf.fit(X_train_minmax, y_train)
 
 # Predicting the Test set results
 predictions = rf.predict(X_test)
+print(predictions)
 
 # Save the model as a pickle in a file 
-joblib.dump(rf, 'model.pkl') 
+joblib.dump(rf, 'randomforest.sav') 
 
 # Loading model to compare the results
 # model = pickle.load(open('model.pkl'))

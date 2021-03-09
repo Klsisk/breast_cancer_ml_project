@@ -1,4 +1,5 @@
 # Import Necessary Libraries
+print('test')
 import models
 import pickle
 import numpy as np
@@ -17,7 +18,7 @@ import os
 #################################################
 engine = create_engine(f'postgresql://postgres:{sql_pass}@localhost/breast_cancer1')
 conn=engine.connect()
-print(conn.execute("SELECT * from cancerdata"))
+#print(conn.execute("SELECT * from cancerdata"))
 
 # Reflect an existing database into a new model
 Base = automap_base()
@@ -30,8 +31,10 @@ Base.prepare(engine, reflect=True)
 # Flask Setup
 #################################################
 app = Flask(__name__)
-# model = pickle.load(open('model.pkl', 'rb'))
-#################################################
+
+# Load the model from disk
+loaded_model = pickle.load(open('BCData/randomforest1.sav', 'rb'))
+###########################randomforests1.sav######################
 # Flask Routes
 #################################################
 
@@ -43,19 +46,25 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
 
-    int_features = [int(x) for x in request.form.values()]
+    int_features = [float(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
-    prediction = model.predict(final_features)
+
+    prediction = loaded_model.predict(final_features)
 
     output = round(prediction[0], 2)
 
-    return render_template('index.html', prediction_text='Sales should be $ {}'.format(output))
+    if output == 1:
+        prediction_text = 'a malignant tumor'
+    else:
+        prediction_text = 'a benign tumor'
+    
+    return render_template('index.html', prediction_text=prediction_text)
 
 @app.route('/results', methods=['POST'])
 def results():
 
     data = request.get_json(force=True)
-    prediction = model.predict([np.array(list(data.values()))])
+    prediction = loaded_model.predict([np.array(list(data.values()))])
 
     output = prediction[0]
     return jsonify(output)
