@@ -43,6 +43,7 @@ loaded_model = pickle.load(open('BCData/randomforest1.sav', 'rb'))
 def home():
     return render_template("index.html")
 
+# create prediction route that renders prediction text
 @app.route('/predict', methods=['POST'])
 def predict():
 
@@ -60,6 +61,7 @@ def predict():
     
     return render_template('index.html', prediction_text=prediction_text)
 
+# create results route that renders a result
 @app.route('/results', methods=['POST'])
 def results():
 
