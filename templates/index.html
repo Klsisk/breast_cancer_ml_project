@@ -1,67 +1,92 @@
-
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <title>Malignancy Detector</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-  <link rel="stylesheet" href="static/css/style.css">
+  <link rel=“stylesheet” href=“https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css” integrity=“sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2” crossorigin=“anonymous”>
+  <link rel="stylesheet" href='css/style.css'>
 </head>
+<body style="background: rgb(255, 204, 230);">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" style=background-color:#4F85A7 href="index.html">Home Page</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+      <li class="nav-item">
+        <a class="nav-link" href="Process.html">Process</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Resources.html">Resources</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-<body>
-<body style="background: rgb(233, 156, 192);"></body>
-<div class="topnav">
-    <a class= "active" href="index.html">Breast Cancer Awareness</a>
-    <div class="topnav-right">
-        <a href="Process.html">Process</a>
-        <a href="#">Resources</a>
+<!-- <div class="navigation"> -->
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+      <!-- <a class="navbar-brand" style=background-color:#4F85A7 href="index.html">Home Page</a> -->
+      <!-- <div class="collapse navbar-collapse" id="navbarNavDropdown"> -->
+          <!-- <ul class="navbar-nav ml-auto"> -->
+              <!-- <li class="nav-item"> -->
+                  <!-- <a class="nav-link" href="Process.html">Process</a> -->
+              <!-- </li> -->
+              <!-- <li class="nav-item"> -->
+                  <!-- <a class="nav-link" href="Resources.html">Resources</a> -->
+              <!-- </li> -->
+          <!-- </ul> -->
+      <!-- </div> -->
+  <!-- </nav> -->
+</div>  
+<div class="hero text-center">
+  <h1 style="color:rgb(204, 0, 105)">Malignancy Detector</h1>
+    <p style="color: rgb(204, 0, 105)">A Machine Learning Model That Predicts the Malignancy of a Tumor</p>
     </div>
-
-</div>
-  
-    <div class="hero text-center">
-      <h1>Malignancy Detector</h1>
-      <p>A Machine learning model that predicts the malignancy of a tumor</p>
-    </div>
-    <div class="col-md-12" style="text-align:center">
-        <p > Description of the ten real-valued features that are computed for each cell nucleus:</p>
-        <p> a) radius (mean of distances from center to points on the perimeter)</p>
-        <p>b) texture (standard deviation of gray-scale values)</p>
-        <p>c) perimeter</p>
-        <p>d) area</p>
-        <p>e) smoothness (local variation in radius lengths)</p>
-        <p>f) compactness (perimeter^2 / area - 1.0)</p>
-        <p>g) concavity (severity of concave portions of the contour)</p>
-        <p>h) concave points (number of concave portions of the contour)</p>
-        <p>i) symmetry</p>
-        <p>j) fractal dimension ("coastline approximation" - 1)</p>
-    </div>
+    <!-- <div class="col-md-12" style="color:rgb(255, 102, 181)"; style="text-align:center"; style="font-size: 11px"> -->
+        <!-- <p > Description of the ten real-valued features that are computed for each cell nucleus:</p> -->
+        <!-- <p> a) radius (mean of distances from center to points on the perimeter)</p> -->
+        <!-- <p>b) texture (standard deviation of gray-scale values)</p> -->
+        <!-- <p>c) perimeter</p> -->
+        <!-- <p>d) area</p> -->
+        <!-- <p>e) smoothness (local variation in radius lengths)</p> -->
+        <!-- <p>f) compactness (perimeter^2 / area - 1.0)</p> -->
+        <!-- <p>g) concavity (severity of concave portions of the contour)</p> -->
+        <!-- <p>h) concave points (number of concave portions of the contour)</p> -->
+        <!-- <p>i) symmetry</p> -->
+        <!-- <p>j) fractal dimension ("coastline approximation" - 1)</p> -->
+    <!-- </div> -->
     <div class="container">
       <div class="row margin-top-50">
         
-        <div class="col-xs-12 col-md-10" style="text-align:center">
+        <div class="col-xs-12 col-md-10" style= "color: white">
             <form action="{{ url_for('predict')}}"method="post">
-                <input type="text" name="radius_mean" placeholder="radius_mean" required="required" />
-                <input type="text" name="texture_mean" placeholder="texture_mean" required="required" />
-                <input type="text" name="perimeter_mean" placeholder="perimeter_mean" required="required" />
-                <input type="text" name="area_mean" placeholder="area_mean" required="required" />
-                <input type="text" name="smoothness_mean" placeholder="smoothness_mean" required="required" />
-                <input type="text" name="compactness_mean" placeholder="compactness_mean" required="required" />
-                <input type="text" name="concavity_mean" placeholder="concavity_mean" required="required" />
-                <input type="text" name="concave_points_mean" placeholder="concave_points_mean" required="required" />
-                <input type="text" name="symmetry_mean" placeholder="symmetry_mean" required="required" />
-                <input type="text" name="fractal_dimension_mean" placeholder="fractal_dimension_mean" required="required" />
-                <button color= "rgb(233, 156, 192)" type="submit" class="btn btn-primary btn-block btn-small">Predict Type of Tumor</button>
+                <input type="text" name="radius_mean" placeholder="radius" required="required" />
+                <input type="text" name="texture_mean" placeholder="texture" required="required" />
+                <input type="text" name="perimeter_mean" placeholder="perimeter" required="required" />
+                <input type="text" name="area_mean" placeholder="area" required="required" />
+                <input type="text" name="smoothness_mean" placeholder="smoothness" required="required" />
+                <input type="text" name="compactness_mean" placeholder="compactness" required="required" />
+                <input type="text" name="concavity_mean" placeholder="concavity" required="required" />
+                <input type="text" name="concave_points_mean" placeholder="concave_points" required="required" />
+                <input type="text" name="symmetry_mean" placeholder="symmetry" required="required" />
+                <input type="text" name="fractal_dimension_mean" placeholder="fractal_dimension" required="required" />
+                <!--<button type="submit" class="btn btn-primary btn-block btn-small">Predict Type of Tumor</button>-->
+                <div class=“button_cont” text-align=center><a class=“button_css” target=“_blank” rel=“nofollow noopener”>
+                  <button type=“submit” class=“btn btn-primary btn-block btn-large”><strong>Predict type of Tumor</strong></button></a>
+                </div>
+                
             </form>
             {{ prediction_text }}
         </div>
         
       </div>
     </div>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
   <script src="static/js/data.js"></script>
   <script src="static/js/app.js"></script>
