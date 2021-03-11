@@ -55,9 +55,9 @@ def predict():
     output = round(prediction[0], 2)
 
     if output == 1:
-        prediction_text = 'a malignant tumor'
+        prediction_text = 'A Malignant Tumor'
     else:
-        prediction_text = 'a benign tumor'
+        prediction_text = 'A Benign Tumor'
     
     return render_template('index.html', prediction_text=prediction_text)
 
@@ -73,3 +73,4 @@ def results():
 
 if __name__ == "__main__":
     app.run(debug=True)
+    
