@@ -9,22 +9,22 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 from flask import Flask, jsonify, render_template, redirect, url_for, request
-from Data.config import sql_pass
+#from BCData.config import sql_pass
 from sklearn.model_selection import train_test_split
 import os
 
 #################################################
 # Database Setup
 #################################################
-engine = create_engine(f'postgresql://postgres:{sql_pass}@localhost/breast_cancer1')
-conn=engine.connect()
+#engine = create_engine(f'postgresql://postgres:{sql_pass}@localhost/breast_cancer1')
+#conn=engine.connect()
 #print(conn.execute("SELECT * from cancerdata"))
 
 # Reflect an existing database into a new model
-Base = automap_base()
+#Base = automap_base()
 
 # Reflect the tables
-Base.prepare(engine, reflect=True)
+#Base.prepare(engine, reflect=True)
 
 
 #################################################
