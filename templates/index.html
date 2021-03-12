@@ -1,57 +1,101 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>Malignancy Detector</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
 </head>
- 
-<Body background="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/breast-cancer-background-alt-design-template-6d2a50369bb6eea58e942bed7f89e090.jpg?ts=1615237454"
-<body>
 
+<body style="background-color:rgb(255, 204, 220)">
+  <div id="bg"></div>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsMQMxtUJJUhGYVAmqsaCOuHfXKFqb8YKYxA&usqp=CAU"
+    width="1700" height="200" alt="hands"></img>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 jumbotron text-center" style="background-color:rgb(255, 77, 166)">
+        <h1>Malignancy Detector</h1>
+        <p>A Machine Learning Model That Predicts the Malignancy of a Tumor</p>
+      </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 jumbotron text-center">
-          <h1>Malignancy Detector</h1>
-          <p>A Machine Learning Model That Predicts the Malignancy of a Tumor</p>
-        </div>
-  
- <div class=“login”>
-    <!-- Get input for predict the Malignancy -->
-    <center>
-      <form action="{{ url_for('predict') }}" method=post>
-      <form>
-        <h1>Enter values of tumor features >>></h1>
-      <input type=“text” name=“radius” placeholder= radius required=“required” />
-        <input type=“text” name=“texture” placeholder= texture required=“required” />
-    <input type=“text” name=“perimeter” placeholder= perimeter required=“required” />
-    <input type=“text” name=“area” placeholder= area required=“required” />
-    <br>
-      <input type=“text” name=“smoothness” placeholder= smoothness required=“required” />
-    <input type=“text” name=“compactness” placeholder= compactness required=“required” />
-    <input type=“text” name=“concavity” placeholder= concavity required=“required” />
-        <input type=“text” name=“concave_points” placeholder= concave concave_points” required=“required” />
-    <br>
-      <input type=“text” name=“symmetry” placeholder= symmetry required=“required” />
-      <input type=“text” name=“fractal_dimension” placeholder= fractal_dimension required=“required” />
-      <br>
-        <br>
-        <br>
-        <!-- Show button -->
-        <div class=“button_cont” text-align=“center”><a class=“button_css” target=“_blank” rel=“nofollow noopener”>
-            <button type=“submit” class=“btn btn-primary btn-block btn-large”><strong>Predict type of Tumor</strong></button></a>
-        </div>
-    </form>
-    </centre>
-   <!-- Show predicted output using ML model -->
-   <div>
-       <center>
-   <h1>{{ prediction_text }}</h1>
-       </center>
-   </div>
-        
+      <div class=“login”>
+        <!-- Get input for predict the Malignancy -->
+        <center>
+          <form action="{{ url_for('predict') }}" method=post>
+            <form>
+              <h1 style="color:rgb(255, 51, 116)">Enter values of tumor features</h1>
+              <h5 style="color:rgb(255, 51, 116)">Inside each cell is a dropdown with the mean for reference</h1>
+                <input list="radius" text=“text” name="radius" placeholder=radius required=“required”
+                  style="text-align:center" />
+                <datalist id="radius">
+                  <option value="14.12729174" />
+                </datalist>
+                <input list="texture" type=“text” name=“texture” placeholder=texture required=“required”
+                  style="text-align:center" />
+                <datalist id="texture">
+                  <option value="19.28964851" />
+                </datalist>
+                <input list="perimeter" type=“text” name=“perimeter” placeholder=perimeter required=“required”
+                  style="text-align:center" />
+                <datalist id="perimeter">
+                  <option value="91.96903339" />
+                </datalist>
+                <input list="area" type=“text” name=“area” placeholder=area required=“required”
+                  style="text-align:center" />
+                <datalist id="area">
+                  <option value="654.8891037" />
+                </datalist>
+                <br>
+                <input list="smoothness" type=“text” name=“smoothness” placeholder=smoothness required=“required”
+                  style="text-align:center" />
+                <datalist id="smoothness">
+                  <option value="0.096360281" />
+                </datalist>
+                <input list="compactness" type=“text” name=“compactness” placeholder=compactness required=“required”
+                  style="text-align:center" />
+                <datalist id="compactness">
+                  <option value="0.104340984" />
+                </datalist>
+                <input list="concavity" type=“text” name=“concavity” placeholder=concavity required=“required”
+                  style="text-align:center" />
+                <datalist id="concavity">
+                  <option value="0.088799316" />
+                </datalist>
+                <input list="concave_points" type=“text” name=“concave_points” placeholder=concave concave_points”
+                  required=“required” style="text-align:center" />
+                <datalist id="concave_points">
+                  <option value="0.048919146" />
+                </datalist>
+                <br>
+                <input list="symmetry" type=“text” name=“symmetry” placeholder=symmetry required=“required”
+                  style="text-align:center" />
+                <datalist id="symmetry">
+                  <option value="0.181161863" />
+                </datalist>
+                <input list="fractal_dimension" type=“text” name=“fractal_dimension” placeholder=fractal_dimension
+                  required=“required” style="text-align:center" />
+                <datalist id="fractal_dimension">
+                  <option value="0.06279761" />
+                </datalist>
+                <br>
+                <br>
+                <br>
+                <!-- Show button -->
+                <div class=“button_cont” text-align=“center”><a class=“button_css” target=“_blank” rel=“nofollow
+                    noopener”>
+                    <button type=“submit” class=“btn btn-primary btn-block btn-large”><strong>Predict type of
+                        Tumor</strong></button></a>
+                </div>
+            </form>
+            </centre>
+            <!-- Show predicted output using ML model -->
+            <div>
+              <center>
+                <h1 style="color: rgb(230, 0, 115)"> <b>{{ prediction_text }}</b></h1>
+              </center>
+            </div>
+
       </div>
     </div>
   </div>
@@ -59,11 +103,11 @@
   <!-- Start of footer -->
   <footer class="footer navbar-fixed-bottom">
     <div class="two-toned-footer-color"></div>
-    <p class="text-muted text-muted-footer text-center">
-      &copy; Copyright Coding Bootcamp 2020
-    </p>
+    <div style="color:rgb(255, 51, 116)" id="footer">&copy; Copyright Kendall Sisk, Kimberly Kockenmeister, and Adesola
+      Fakiyesi 2021</div>
   </footer>
   <!-- End of footer -->
-    
+
 </body>
+
 </html>
