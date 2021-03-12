@@ -11,3 +11,5 @@ This will help predict if a tumor is Benign or Malignant.
 
 We shall be using the Breast Cancer Wisconsin (Diagnostic) Data Set.
 (https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29).
+
+![image](https://user-images.githubusercontent.com/69765842/110887094-ac85ad80-82b7-11eb-8a9f-99ce17a0f1ee.png)
